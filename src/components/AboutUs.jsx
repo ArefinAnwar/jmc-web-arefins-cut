@@ -61,7 +61,7 @@ export default function AboutUs() {
             duration={75}
             delay={4000}
             // startOnView={true}
-            className="text-slate-200 text-lg md:mt-0 mt-4"
+            className="text-slate-200 text-lg md:mt-0 mt-4 z-30"
           >
             The Josephite Math Club is dedicated to cultivating a passion for
             mathematics. Our mission is to provide a supportive environment for

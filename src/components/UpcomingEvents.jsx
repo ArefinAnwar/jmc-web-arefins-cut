@@ -63,7 +63,7 @@ function EventCard({ title, date, location, description, regLink }) {
       <p className="text-slate-400 text-center">{description}</p>
       <PulsatingButton
         className="mt-8"
-        onClick={() => window.open("https://sagecap.us", "_blank")}
+        onClick={() => window.open("https://www.facebook.com/", "_blank")}
       >
         Register
       </PulsatingButton>
