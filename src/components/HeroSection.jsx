@@ -73,7 +73,7 @@ export default function HeroSection() {
       </div>
       <button
         className="uppercase bg-gradient-to-r from-indigo-500 to-violet-600 via-blue-600  relative rounded-lg z-40 mt-20 md:mt-10 block mx-auto bg-slate-600 py-3 px-10 text-white text-2xl font-semibold hover:-translate-y-2 ease-in-out duration-200 hover:scale-110 hover:font-thin"
-        onClick={() => window.open("https://sagecap.us", "_blank")}
+        onClick={() => window.open("https://facebook.com", "_blank")}
       >
         Register
         <BorderBeam size={50} duration={5} borderWidth="3" />
