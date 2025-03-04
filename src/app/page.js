@@ -10,15 +10,25 @@ import Navbar from "@/components/Navbar";
 import Gallery from "@/components/Gallery";
 import Footer from "@/components/Footer";
 import { TypingAnimation } from "@/components/ui/typing-animation";
-
+import Testimonials from "@/components/Testimonials";
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs'
 
 function LoadingScreen({ onComplete }) {
   const [text, setText] = useState("");
   const fullText = "Calculating dt...";
-  const typingSpeed = 150; // Typing speed in milliseconds
+  const typingSpeed = 0; // Typing speed in milliseconds
 
   useEffect(() => {
     let index = 0;
+    console.log("H")
+
     const typingInterval = setInterval(() => {
       if (index < fullText.length) {
         setText(fullText.slice(0, index + 1)); // Proper slicing to avoid undefined
@@ -46,38 +56,45 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   return (
-    <div className="relative h-screen items-center justify-center overflow-y-scroll bg-[#070014]">
-      {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
-      {!loading && (
-        <>
-          <Navbar />
-          <section id="hero_section">
-            <HeroSection />
-          </section>
+    <ClerkProvider >
 
-          <section id="about_section">
-            <AboutUs />
-          </section>
+      <div className="relative h-screen items-center justify-center overflow-y-scroll bg-[#070014]">
+        {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
+        {!loading && (
+          <>
+            <Navbar />
+            <section id="hero_section">
+              <HeroSection />
+            </section>
 
-          <section id="objective_section">
-            <OurObjectives />
-          </section>
+            <section id="about_section" className="bg-slat-400 h-screen overflow-hidden">
+              <AboutUs />
+            </section>
 
-          <section id="gallery_section">
-            <Gallery />
-          </section>
+            <section id="objective_section">
+              <OurObjectives />
+            </section>
 
-          <section id="events_section">
-            <UpcomingEvents />
-          </section>
+            <section id="gallery_section">
+              <Gallery />
+            </section>
 
-          <section id="contacts_section">
-            <ContactUs />
-          </section>
+            <section id="events_section">
+              <UpcomingEvents />
+            </section>
+            <section id="testimonial_section">
+              <Testimonials />
+            </section>
+            <section id="contacts_section">
+              <ContactUs />
+            </section>
 
-          <Footer />
-        </>
-      )}
-    </div>
+
+            <Footer />
+          </>
+        )}
+      </div>
+    </ClerkProvider >
+
   );
 }

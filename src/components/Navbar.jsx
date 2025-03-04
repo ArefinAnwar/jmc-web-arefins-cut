@@ -3,6 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
 export default function Navbar({ className, notHomePage = false }) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -192,7 +200,7 @@ export default function Navbar({ className, notHomePage = false }) {
     );
   } else {
     return (
-      <>
+      <ClerkProvider>
         {isMobile ? (
           <nav
             className={cn(
@@ -303,7 +311,7 @@ export default function Navbar({ className, notHomePage = false }) {
               height={75}
               priority
             />
-            <div className="mr-10 text-white">
+            <div className="mr-10 text-white  h-auto items-center justify-center flex">
               <Link
                 href="#hero_section"
                 className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 hover:scale-110"
@@ -326,13 +334,6 @@ export default function Navbar({ className, notHomePage = false }) {
               </Link>
               |
               <Link
-                href="#objective_section"
-                className="px-3  cursor-pointer hover:text-blue-400 ease-in-out duration-300 hover:scale-110"
-              >
-                Objectives
-              </Link>
-              |
-              <Link
                 href="#events_section"
                 className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 hover:scale-110"
               >
@@ -347,15 +348,50 @@ export default function Navbar({ className, notHomePage = false }) {
               </Link>
               |
               <Link
+                href="/articles"
+                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 hover:scale-110"
+              >
+                Articles
+              </Link>
+              |
+              <Link
                 href="#contacts_section"
                 className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 hover:scale-110"
               >
                 Contact
               </Link>
+              |
+              <SignedIn>
+                <Link
+                  href="#contacts_section"
+                  className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 hover:scale-110"
+                >
+                  Submit article
+                </Link>
+                |
+                <Link
+                  href="#contacts_section"
+                  className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 hover:scale-110"
+                >
+                  Resources
+                </Link>
+                |
+              </SignedIn>
+              <SignedOut>
+                <SignInButton
+                  className="px-3 cursor-pointer hover:text-blue-400 ease-in-out
+                duration-300 "
+                />
+              </SignedOut>
+              <SignedIn>
+                <div className="inline-flex ml-3 justify-center items-center bglate-300">
+                  <UserButton />
+                </div>
+              </SignedIn>
             </div>
           </div>
         )}
-      </>
+      </ClerkProvider>
     );
   }
 }

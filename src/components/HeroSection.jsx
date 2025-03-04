@@ -21,7 +21,7 @@ export default function HeroSection() {
     const targetDate = new Date("November 5, 2025 20:01:0").getTime();
     const now = new Date().getTime();
     const difference = targetDate - now;
-    console.log("Time difference in milliseconds:", difference);
+    // console.log("Time difference in milliseconds:", difference);
     return difference > 0
       ? {
           days: Math.floor(difference / (1000 * 60 * 60 * 24)),

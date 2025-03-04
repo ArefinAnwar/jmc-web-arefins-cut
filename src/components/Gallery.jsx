@@ -78,7 +78,7 @@ export default function Gallery() {
           willChange: "transform, opacity",
         }}
       >
-        Gallery
+        Memories
       </motion.h1>
       <div className="mt-0 md:mt-20 relative w-[90%] max-w-3xl mx-auto overflow-hidden  shadow-lg">
         <div

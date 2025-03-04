@@ -6,9 +6,35 @@ import { cn } from "@/lib/utils";
 import { AuroraText } from "@/components/ui/aurora-text";
 import { GridPattern } from "@/components/ui/grid-pattern";
 import { BorderBeam } from "@/components/ui/border-beam";
+const objectives = [
+  {
+    title: "Problem Solving",
+    icon: <Calculator size={60} color="#fff" />,
+    description:
+      "Develop your math skills through challenging problems and real-world applications. Build critical thinking and problem-solving abilities.",
+  },
+  {
+    title: "Olympiad Preparation",
+    icon: <Trophy size={60} color="#fff" />,
+    description:
+      "Preparing for math Olympiads helps you think outside the box and tackle advanced problems with confidence.",
+  },
+  {
+    title: "Creativity",
+    icon: <Lightbulb size={60} color="#fff" />,
+    description:
+      "Learn how creativity fuels problem-solving. Apply mathematical thinking in innovative ways.",
+  },
+  {
+    title: "Love for Math",
+    icon: <HandHeart size={60} color="#fff" />,
+    description:
+      "Embrace your passion for mathematics and explore its beauty in a supportive environment.",
+  },
+];
 export default function OurObjectives() {
   const sectionRef = useRef(null);
-  const inView = useInView(sectionRef, { once: false, margin: "-10% 0px" });
+  const inView = useInView(sectionRef, { once: true, margin: "-10% 0px" });
 
   return (
     <div
@@ -21,7 +47,8 @@ export default function OurObjectives() {
         x={-1}
         y={-1}
         className={cn(
-          "[mask-image:linear-gradient(to_top_left,white,transparent,transparent)] "
+          "[mask-image:linear-gradient(to_top_left,white,transparent,transparent)]"
+          // "mask-image:radial-gradient(500px_circle_at_center, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0))"
         )}
       />
       <GridPattern
@@ -46,42 +73,30 @@ export default function OurObjectives() {
         Our Objectives
       </motion.h1>
       <div className="flex flex-row w-full justify-center items-center px-10">
-        <div className="flex mt-[6rem] md:mt-0 flex-col md:flex-row gap-4 w-full">
-          <ObjectiveCard
-            title="Problem Solving"
-            icon={<Calculator size={60} color="#fff" />}
-            description="Develop your math skills through challenging problems and real-world applications. Build critical thinking and problem-solving abilities."
-          />
-          <ObjectiveCard
-            title="Olympiad Preparation"
-            icon={<Trophy size={60} color="#fff" />}
-            description="Preparing for math Olympiads helps you think outside the box and tackle advanced problems with confidence."
-          />
-          <ObjectiveCard
-            title="Creativity"
-            icon={<Lightbulb size={60} color="#fff" />}
-            description="Learn how creativity fuels problem-solving. Apply mathematical thinking in innovative ways."
-          />
-          <ObjectiveCard
-            icon={<HandHeart size={60} color="#fff" />}
-            title="Love for Math"
-            description="Embrace your passion for mathematics and explore its beauty in a supportive environment."
-          />
+        <div className="flex mt-[6rem] md:mt-0 flex-col md:flex-row gap-4 w-full items-center ">
+          {objectives.map((objective, index) => (
+            <ObjectiveCard
+              title={objective.title}
+              icon={objective.icon}
+              description={objective.description}
+              delay={1 * index}
+            />
+          ))}
         </div>
       </div>
     </div>
   );
 }
 
-function ObjectiveCard({ title, description, icon }) {
+function ObjectiveCard({ title, description, icon, delay }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: false, margin: "-10% 0px" });
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: -100, scale: 0.75 }}
+      initial={{ opacity: 0, y: -50, scale: 0.8 }}
       animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.3, delay: delay }}
       className="flex overflow-hidden relative flex-col max-w-[20rem] rounded-xl h-[20rem] border-[0px] border-purple-400 bg-blue-900/30  p-5  justify-cen items-center ease-in-out duration-300 hover:-translate-y-1 hover:shadow-lg shadow-sky-700"
     >
       <BorderBeam size={160} duration={6} delay={9} />
