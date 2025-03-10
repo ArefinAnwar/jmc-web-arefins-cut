@@ -16,7 +16,7 @@ const activities = [
 
 export default function AboutUs() {
   const sectionRef = useRef(null);
-  const inView = useInView(sectionRef, { once: false, margin: "-10% 0px" });
+  const inView = useInView(sectionRef, { once: true, margin: "-10% 0px" });
   const floatingSymbols = ["\u03C0", "\u222B", "d/dx", "\u2211"];
   const [isMobile, setIsMobile] = useState(false);
 
@@ -123,7 +123,7 @@ export default function AboutUs() {
 function ActivitiesBlock({ title, desc, delay }) {
   const ref = useRef(null);
 
-  const inView = useInView(ref, { once: false, margin: "-10% 0px" });
+  const inView = useInView(ref, { once: true, margin: "-10% 0px" });
 
   return (
     <motion.div

@@ -95,20 +95,7 @@ export default function Navbar({ className, notHomePage = false }) {
                 >
                   About
                 </Link>
-                <Link
-                  href="./#gallery_section"
-                  className="py-2 lg:py-0 cursor-pointer"
-                  onClick={toggleNavbar}
-                >
-                  Gallery
-                </Link>
-                <Link
-                  href="./#objective_section"
-                  className="py-2 lg:py-0 cursor-pointer"
-                  onClick={toggleNavbar}
-                >
-                  Objectives
-                </Link>
+
                 <Link
                   href="./#events_section"
                   className="py-2 lg:py-0 cursor-pointer"
@@ -124,7 +111,38 @@ export default function Navbar({ className, notHomePage = false }) {
                   Quizes
                 </Link>
                 <Link
-                  href="./#contacts_section"
+                  href="/articles"
+                  className="py-2 lg:py-0 cursor-pointer"
+                  onClick={toggleNavbar}
+                >
+                  Articles
+                </Link>
+                <SignedIn>
+                  <Link
+                    href="/submit_article"
+                    className="py-2 lg:py-0 cursor-pointer"
+                    onClick={toggleNavbar}
+                  >
+                    Submit Article
+                  </Link>
+                  <Link
+                    href="/resources"
+                    className="py-2 lg:py-0 cursor-pointer"
+                    onClick={toggleNavbar}
+                  >
+                    Resources
+                  </Link>
+                </SignedIn>
+                <SignedOut>
+                  <SignInButton className="py-2 lg:py-0 cursor-pointer" />
+                </SignedOut>
+                <SignedIn>
+                  <div className="inline-flex my-1 justify-center items-center bglate-300">
+                    <UserButton />
+                  </div>
+                </SignedIn>
+                <Link
+                  href="#contacts_section"
                   className="py-2 lg:py-0 cursor-pointer"
                   onClick={toggleNavbar}
                 >
@@ -144,55 +162,83 @@ export default function Navbar({ className, notHomePage = false }) {
               height={75}
               priority
             />
-            <div className="mr-10 text-white">
+            <div className="mr-10 text-white h-auto items-center justify-center flex">
               <Link
                 href="./#hero_section"
-                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 hover:scale-110"
+                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 "
               >
                 Home
               </Link>
               |
               <Link
                 href="./#about_section"
-                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 hover:scale-110"
+                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 "
               >
                 About
               </Link>
               |
               <Link
                 href="./#gallery_section"
-                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 hover:scale-110"
+                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300"
               >
                 Gallery
               </Link>
               |
               <Link
-                href="./#objective_section"
-                className="px-3  cursor-pointer hover:text-blue-400 ease-in-out duration-300 hover:scale-110"
-              >
-                Objectives
-              </Link>
-              |
-              <Link
                 href="./#events_section"
-                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 hover:scale-110"
+                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 "
               >
                 Events
               </Link>
               |
               <Link
-                href="./quiz"
-                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 hover:scale-110"
+                href="/quiz"
+                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 "
               >
                 Quizes
               </Link>
               |
               <Link
-                href="./#contacts_section"
-                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 hover:scale-110"
+                href="/articles"
+                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300"
+              >
+                Articles
+              </Link>
+              |
+              <Link
+                href="#contacts_section"
+                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 "
               >
                 Contact
               </Link>
+              |
+              <SignedIn>
+                <Link
+                  href="/submit_article"
+                  className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 "
+                >
+                  Submit article
+                </Link>
+                |
+                <Link
+                  href="/resources"
+                  className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300"
+                >
+                  Resources
+                </Link>
+                |
+              </SignedIn>
+              <SignedOut>
+                <SignInButton
+                  className="px-3 cursor-pointer hover:text-blue-400 ease-in-out
+                duration-300 "
+                />
+              </SignedOut>
+              <SignedIn>
+                <div className="inline-flex ml-3 justify-center items-center bglate-300">
+                  <UserButton />
+                </div>
+              </SignedIn>
             </div>
           </div>
         )}
@@ -262,20 +308,7 @@ export default function Navbar({ className, notHomePage = false }) {
                 >
                   About
                 </Link>
-                <Link
-                  href="#gallery_section"
-                  className="py-2 lg:py-0 cursor-pointer"
-                  onClick={toggleNavbar}
-                >
-                  Gallery
-                </Link>
-                <Link
-                  href="#objective_section"
-                  className="py-2 lg:py-0 cursor-pointer"
-                  onClick={toggleNavbar}
-                >
-                  Objectives
-                </Link>
+
                 <Link
                   href="#events_section"
                   className="py-2 lg:py-0 cursor-pointer"
@@ -290,6 +323,38 @@ export default function Navbar({ className, notHomePage = false }) {
                 >
                   Quizes
                 </Link>
+
+                <Link
+                  href="/articles"
+                  className="py-2 lg:py-0 cursor-pointer"
+                  onClick={toggleNavbar}
+                >
+                  Articles
+                </Link>
+                <SignedIn>
+                  <Link
+                    href="/submit_article"
+                    className="py-2 lg:py-0 cursor-pointer"
+                    onClick={toggleNavbar}
+                  >
+                    Submit Article
+                  </Link>
+                  <Link
+                    href="/resources"
+                    className="py-2 lg:py-0 cursor-pointer"
+                    onClick={toggleNavbar}
+                  >
+                    Resources
+                  </Link>
+                </SignedIn>
+                <SignedOut>
+                  <SignInButton className="py-2 lg:py-0 cursor-pointer" />
+                </SignedOut>
+                <SignedIn>
+                  <div className="inline-flex my-1 justify-center items-center bglate-300">
+                    <UserButton />
+                  </div>
+                </SignedIn>
                 <Link
                   href="#contacts_section"
                   className="py-2 lg:py-0 cursor-pointer"
@@ -314,64 +379,64 @@ export default function Navbar({ className, notHomePage = false }) {
             <div className="mr-10 text-white  h-auto items-center justify-center flex">
               <Link
                 href="#hero_section"
-                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 hover:scale-110"
+                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 "
               >
                 Home
               </Link>
               |
               <Link
                 href="#about_section"
-                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 hover:scale-110"
+                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 "
               >
                 About
               </Link>
               |
               <Link
                 href="#gallery_section"
-                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 hover:scale-110"
+                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 "
               >
                 Gallery
               </Link>
               |
               <Link
                 href="#events_section"
-                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 hover:scale-110"
+                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 "
               >
                 Events
               </Link>
               |
               <Link
                 href="/quiz"
-                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 hover:scale-110"
+                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 "
               >
                 Quizes
               </Link>
               |
               <Link
                 href="/articles"
-                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 hover:scale-110"
+                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 "
               >
                 Articles
               </Link>
               |
               <Link
                 href="#contacts_section"
-                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 hover:scale-110"
+                className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 "
               >
                 Contact
               </Link>
               |
               <SignedIn>
                 <Link
-                  href="#contacts_section"
-                  className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 hover:scale-110"
+                  href="/submit_article"
+                  className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 "
                 >
                   Submit article
                 </Link>
                 |
                 <Link
-                  href="#contacts_section"
-                  className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 hover:scale-110"
+                  href="/resources"
+                  className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300"
                 >
                   Resources
                 </Link>

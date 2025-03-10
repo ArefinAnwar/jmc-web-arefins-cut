@@ -90,16 +90,16 @@ export default function OurObjectives() {
 
 function ObjectiveCard({ title, description, icon, delay }) {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, margin: "-10% 0px" });
+  const inView = useInView(ref, { once: true });
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: -50, scale: 0.8 }}
+      initial={{ opacity: 0, y: -50, scale: 0.3 }}
       animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-      transition={{ duration: 0.3, delay: delay }}
+      transition={{ duration: 0.1, delay: delay }}
       className="flex overflow-hidden relative flex-col max-w-[20rem] rounded-xl h-[20rem] border-[0px] border-purple-400 bg-blue-900/30  p-5  justify-cen items-center ease-in-out duration-300 hover:-translate-y-1 hover:shadow-lg shadow-sky-700"
     >
-      <BorderBeam size={160} duration={6} delay={9} />
+      <BorderBeam size={160} duration={6} delay={9} colorFrom="#6e19ff" colorTo="#87b5ff" borderWidth="2.5"/>
       {icon}
       <span className="text-2xl mt-6 font-bold  mb-3 text-slate-100 italic">
         <motion.div

@@ -1,3 +1,19 @@
+
+// 1. Use official white logo of JMC (current one is cropped by the edges).
+
+// 2. Header/title font e.g. Josephite Math Mania, What is JMC?, Our objectives, etc. font that is used: Change that font for something better, maybe use some 3d like textured (normal) fonts.
+
+// 3. Optimize the code for popups under "What is JMC?" and "Our Objectives" for more efficiency as it kind of lags.
+
+// 4. Fix alignment for "Our Objectives" and "Memories"as it overlaps with the popups- these things changes their relative position upon ratio of we window, so make it such that they dont change their positions among themselves.
+
+// 5. Make the glow ring around popups under "Our Objectives" blue & white intead of orange-purple.
+
+// 6. Make the "Upcoming Event" page swipe one event at a time with sliding animation instead of altering 3 at once.
+
+// 7. Make portaits of people under "people about JMC" cover the full height of the box, and text to the side.
+
+// 8. Under "Articles" start with trending/recent articles in full version just beneath the thumbnail article section upon scrolling down.
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
