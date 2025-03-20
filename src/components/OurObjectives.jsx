@@ -6,6 +6,15 @@ import { cn } from "@/lib/utils";
 import { AuroraText } from "@/components/ui/aurora-text";
 import { GridPattern } from "@/components/ui/grid-pattern";
 import { BorderBeam } from "@/components/ui/border-beam";
+import { Audiowide, Oxanium } from "next/font/google";
+
+const audiowide = Audiowide({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
+const oxanium = Oxanium({ weight: "400", subsets: ["latin"], display: "swap" });
+
 const objectives = [
   {
     title: "Problem Solving",
@@ -64,9 +73,12 @@ export default function OurObjectives() {
         initial={{ opacity: 0, y: -50 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1 }}
-        className="text-3xl uppercase px-5 md:text-5xl absolute top-0 mb-5 md:mb-14 mt-6 md:mt-20 font-bold text-center text-blue-500 z-40"
+        className={cn(
+          "text-3xl uppercase px-5 md:text-5xl absolute top-0 mb-5 md:mb-14 mt-6 md:mt-20 font-bold text-center text-blue-500 z-40",
+          audiowide.className
+        )}
         style={{
-          textShadow: "3px 0px 1px #fff",
+          // textShadow: "3px 0px 1px #fff",
           willChange: "transform, opacity",
         }}
       >
@@ -99,9 +111,21 @@ function ObjectiveCard({ title, description, icon, delay }) {
       transition={{ duration: 0.1, delay: delay }}
       className="flex overflow-hidden relative flex-col max-w-[20rem] rounded-xl h-[20rem] border-[0px] border-purple-400 bg-blue-900/30  p-5  justify-cen items-center ease-in-out duration-300 hover:-translate-y-1 hover:shadow-lg shadow-sky-700"
     >
-      <BorderBeam size={160} duration={6} delay={9} colorFrom="#6e19ff" colorTo="#87b5ff" borderWidth="2.5"/>
+      <BorderBeam
+        size={160}
+        duration={2}
+        delay={9}
+        colorFrom="#6e19ff"
+        colorTo="#87b5ff"
+        borderWidth="2.5"
+      />
       {icon}
-      <span className="text-2xl mt-6 font-bold  mb-3 text-slate-100 italic">
+      <span
+        className={cn(
+          "text-2xl mt-6 font-bold  mb-3 text-slate-100 italic",
+          oxanium.className
+        )}
+      >
         <motion.div
           className="relative "
           style={{
@@ -123,7 +147,9 @@ function ObjectiveCard({ title, description, icon, delay }) {
         </motion.div>
       </span>
       <h1 className="text-2xl mt-2 font-bold text-center text-white mb-3"></h1>
-      <p className="text-slate-400 text-center">{description}</p>
+      <p className={cn("text-slate-400 text-center", oxanium.className)}>
+        {description}
+      </p>
     </motion.div>
   );
 }

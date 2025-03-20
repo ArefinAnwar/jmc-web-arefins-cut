@@ -1,6 +1,14 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { Audiowide, Oxanium } from "next/font/google";
+import { cn } from "@/lib/utils";
+const audiowide = Audiowide({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
+const oxanium = Oxanium({ weight: "400", subsets: ["latin"], display: "swap" });
 
 export default function ContactUs() {
   const sectionRef = useRef(null);
@@ -77,9 +85,12 @@ export default function ContactUs() {
             initial={{ opacity: 0, y: -50 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1 }}
-            className="text-2xl px-5 mb-4 uppercase md:text-5xl font-bold text-center text-blue-500 z-40"
+            className={cn(
+              "text-2xl px-5 mb-4 uppercase md:text-5xl font-bold text-center text-blue-500 z-40",
+              audiowide.className
+            )}
             style={{
-              textShadow: "3px 0px 1px #fff",
+              // textShadow: "3px 0px 1px #fff",
               willChange: "transform, opacity",
             }}
           >

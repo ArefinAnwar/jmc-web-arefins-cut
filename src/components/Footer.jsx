@@ -1,6 +1,15 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import { Audiowide, Oxanium } from "next/font/google";
+import { cn } from "@/lib/utils";
+const audiowide = Audiowide({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
+const oxanium = Oxanium({ weight: "400", subsets: ["latin"], display: "swap" });
+
 export default function Footer() {
   return (
     <div className="relative flex flex-col md:flex-row w-full h-auto py-4  md:py-0 md:h-40 bg-slate-800/30 items-center justify-center">
@@ -13,11 +22,21 @@ export default function Footer() {
           width={3}
           height={3}
         />
-        <h1 className="text-white text-xl py-4 uppercase">
+        <h1
+          className={cn(
+            "text-white text-xl py-4 uppercase",
+            audiowide.className
+          )}
+        >
           Josephite <br /> Math <br /> Club
         </h1>
       </div>
-      <div className="flex flex-row w-11/12  justify-center items-center md:w-auto md:mb-0 mb-4">
+      <div
+        className={cn(
+          "flex flex-row w-11/12  justify-center items-center md:w-auto md:mb-0 mb-4",
+          oxanium.className
+        )}
+      >
         <div className="text-xs h-full w-11/12 md:w-auto md:ml-40 m-4 md:mr-8 gap-2 flex flex-col justify-center text-white">
           <Link className="hover:underline" href="#hero_section">
             Home
@@ -60,7 +79,7 @@ export default function Footer() {
           </button>
         </div>
       </div>
-      <span className="text-sm absolute bottom-2 text-slate-300 mx-auto">
+      <span className={cn("text-sm absolute bottom-2 text-slate-300 mx-auto", audiowide.className)}>
         © JMC | Made with ❤️ by{" "}
         <Link
           target="_blank"

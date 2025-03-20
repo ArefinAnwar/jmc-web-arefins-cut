@@ -5,6 +5,15 @@ import { PulsatingButton } from "@/components/ui/pulsating-button";
 import { Meteors } from "@/components/ui/meteors";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
+import { Audiowide, Oxanium } from "next/font/google";
+
+const audiowide = Audiowide({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
+const oxanium = Oxanium({ weight: "400", subsets: ["latin"], display: "swap" });
 
 const events = [
   {
@@ -60,15 +69,18 @@ export default function UpcomingEvents() {
   return (
     <div
       ref={sectionRef}
-      className="relative flex flex-col md:mt-20 w-full min-h-screen justify-center items-center overflow-hidden"
+      className="relative flex flex-col md:mt-20 w-full min-h-screen justify-center items-center overflow-hidden bg-ambe-10"
     >
       <motion.h1
         initial={{ opacity: 0, y: -50 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1 }}
-        className="absolute text-3xl px-5 uppercase md:text-5xl mb-5 md:mb-6 md:mt-14 mt-8 top-0 font-bold text-center text-blue-500 z-40"
+        className={cn(
+          "absolute text-[1.7rem] px-5 uppercase md:text-5xl mb-5 md:mb-6 md:mt-14 mt-8 top-0 font-bold text-center text-blue-500 z-40 w-full",
+          audiowide.className
+        )}
         style={{
-          textShadow: "3px 0px 1px #fff",
+          // textShadow: "3px 0px 1px #fff",
           willChange: "transform, opacity",
         }}
       >
@@ -115,10 +127,35 @@ function EventCard({ title, date, location, image }) {
         className="w-full h-auto shadow-md shadow-sky-400"
         priority
       />
-      <h1 className="text-lg font-bold text-center text-white absolute mx-auto top-56">{title}</h1>
-      <p className="text-sm text-sky-600 italic font-medium absolute mx-auto top-[18rem]">{date}</p>
-      <p className="text-sm text-sky-200 font-bold absolute mx-auto top-[19.5rem]">@{location}</p>
-      <PulsatingButton className=" absolute mx-auto bottom-6">Register</PulsatingButton>
+      <h1
+        className={cn(
+          "text-lg font-bold text-center text-white absolute mx-auto top-56",
+          oxanium.className
+        )}
+      >
+        {title}
+      </h1>
+      <p
+        className={cn(
+          "text-sm text-sky-600 italic font-medium absolute mx-auto top-[18rem]",
+          oxanium.className
+        )}
+      >
+        {date}
+      </p>
+      <p
+        className={cn(
+          "text-sm text-sky-200 font-bold absolute mx-auto top-[19.5rem]",
+          oxanium.className
+        )}
+      >
+        @{location}
+      </p>
+      <PulsatingButton
+        className={cn(" absolute mx-auto bottom-6", oxanium.className)}
+      >
+        Register
+      </PulsatingButton>
     </motion.div>
   );
 }

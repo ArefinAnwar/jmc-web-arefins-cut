@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import {
   ClerkProvider,
@@ -11,6 +10,16 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
+import { cn } from "@/lib/utils";
+import { Audiowide, Oxanium } from "next/font/google";
+
+const audiowide = Audiowide({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
+const oxanium = Oxanium({ weight: "400", subsets: ["latin"], display: "swap" });
+
 export default function Navbar({ className, notHomePage = false }) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -38,7 +47,8 @@ export default function Navbar({ className, notHomePage = false }) {
           <nav
             className={cn(
               "fixed visible md:invisible top-0 z-50 right-0 w-full bg-gray-900 bg-opacity-50 text-white",
-              className
+              className,
+              oxanium.className
             )}
           >
             <div className="absolute top-0 right-0 flex items-center justify-between px-4 py-3">
@@ -103,7 +113,7 @@ export default function Navbar({ className, notHomePage = false }) {
                 >
                   Upcoming Events
                 </Link>
-                <Link
+                {/* <Link
                   href="./quiz"
                   className="py-2 lg:py-0 cursor-pointer"
                   onClick={toggleNavbar}
@@ -116,7 +126,7 @@ export default function Navbar({ className, notHomePage = false }) {
                   onClick={toggleNavbar}
                 >
                   Articles
-                </Link>
+                </Link> */}
                 <SignedIn>
                   <Link
                     href="/submit_article"
@@ -152,7 +162,12 @@ export default function Navbar({ className, notHomePage = false }) {
             </div>
           </nav>
         ) : (
-          <div className="flex flex-row w-full md:w-[99%] fixed top-0 h-[3.5rem] bg-sky-950- bg-[#070014] z-50 justify-between bg-opacity-[92%] items-center">
+          <div
+            className={cn(
+              "flex flex-row w-full md:w-[99%] fixed top-0 h-[3.5rem] bg-sky-950- bg-[#070014] z-50 justify-between bg-opacity-[92%] items-center",
+              oxanium.className
+            )}
+          >
             <Image
               className="z-40 border-[0px] ml-8  border-emerald-400 rounded-full mr-1"
               src="/jmc_logo.png"
@@ -191,7 +206,7 @@ export default function Navbar({ className, notHomePage = false }) {
                 Events
               </Link>
               |
-              <Link
+              {/* <Link
                 href="/quiz"
                 className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 "
               >
@@ -204,7 +219,7 @@ export default function Navbar({ className, notHomePage = false }) {
               >
                 Articles
               </Link>
-              |
+              | */}
               <Link
                 href="#contacts_section"
                 className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 "
@@ -251,7 +266,8 @@ export default function Navbar({ className, notHomePage = false }) {
           <nav
             className={cn(
               "fixed visible md:invisible top-0 z-50 right-0 w-full bg-gray-900 bg-opacity-50 text-white",
-              className
+              className,
+              oxanium.className
             )}
           >
             <div className="absolute top-0 right-0 flex items-center justify-between px-4 py-3">
@@ -316,7 +332,7 @@ export default function Navbar({ className, notHomePage = false }) {
                 >
                   Upcoming Events
                 </Link>
-                <Link
+                {/* <Link
                   href="/quiz"
                   className="py-2 lg:py-0 cursor-pointer"
                   onClick={toggleNavbar}
@@ -330,7 +346,7 @@ export default function Navbar({ className, notHomePage = false }) {
                   onClick={toggleNavbar}
                 >
                   Articles
-                </Link>
+                </Link> */}
                 <SignedIn>
                   <Link
                     href="/submit_article"
@@ -366,7 +382,12 @@ export default function Navbar({ className, notHomePage = false }) {
             </div>
           </nav>
         ) : (
-          <div className="flex flex-row w-full md:w-[99%] fixed top-0 h-[3.5rem] bg-sky-950- bg-[#070014] z-50 justify-between bg-opacity-[92%] items-center">
+          <div
+            className={cn(
+              "flex flex-row w-full md:w-[99%] fixed top-0 h-[3.5rem] bg-sky-950- bg-[#070014] z-50 justify-between bg-opacity-[92%] items-center",
+              oxanium.className
+            )}
+          >
             <Image
               className="z-40 border-[0px] ml-8  border-emerald-400 rounded-full mr-1"
               src="/jmc_logo.png"
@@ -405,7 +426,7 @@ export default function Navbar({ className, notHomePage = false }) {
                 Events
               </Link>
               |
-              <Link
+              {/* <Link
                 href="/quiz"
                 className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 "
               >
@@ -418,7 +439,7 @@ export default function Navbar({ className, notHomePage = false }) {
               >
                 Articles
               </Link>
-              |
+              | */}
               <Link
                 href="#contacts_section"
                 className="px-3 cursor-pointer hover:text-blue-400 ease-in-out duration-300 "

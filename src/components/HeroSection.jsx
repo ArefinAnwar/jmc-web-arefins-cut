@@ -1,5 +1,17 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
+import { Bungee_Shade } from "next/font/google";
+import { cn } from "@/lib/utils";
+import { Audiowide, Oxanium } from "next/font/google";
+const audiowide = Audiowide({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
+const oxanium = Oxanium({ weight: "400", subsets: ["latin"], display: "swap" });
+
+const bungeeShade = Bungee_Shade({ weight: "400", subsets: ["latin"] });
+
 import { motion, useInView } from "framer-motion";
 import { RetroGrid } from "@/components/ui/retro-grid";
 import { BorderBeam } from "@/components/ui/border-beam";
@@ -37,15 +49,23 @@ export default function HeroSection() {
         initial={{ opacity: 0, y: -50 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1 }}
-        className="text-6xl px-5 md:text-[5rem] uppercase  mt-44 md:mt-64 font-bold text-center text-blue-500 z-40"
+        className={cn(
+          "text-6xl px-5 md:text-[5rem] uppercase  mt-44 md:mt-64 font-bold text-center text-[#51affc] z-40",
+          bungeeShade.className
+        )}
         style={{
-          textShadow: "3px 0px 1px #fff",
+          // textShadow: "3px 0px 1px #d7ecfc",
           willChange: "transform, opacity",
         }}
       >
         JMC MATH MANIA
       </motion.h1>
-      <div className="mt-20 md:mt-10 flex flex-row w-full bg-slate- justify-center items-center">
+      <div
+        className={cn(
+          "mt-20 md:mt-10 flex flex-row w-full bg-slate- justify-center items-center",
+          oxanium.className
+        )}
+      >
         <div className="text-slate-400 bg-blue-950/50  py-4 w-[7rem] ml-3 md:mx-3 rounded-2xl border-[0.5px] border-slate-700 text-center text-sm">
           <h2 className="text-xl md:text-3xl font-bold text-indigo-500">
             {timeLeft.days}
@@ -72,7 +92,10 @@ export default function HeroSection() {
         </div>
       </div>
       <button
-        className="uppercase bg-gradient-to-r from-indigo-500 to-violet-600 via-blue-600  relative rounded-lg z-40 mt-20 md:mt-10 block mx-auto bg-slate-600 py-3 px-10 text-white text-2xl font-semibold hover:-translate-y-2 ease-in-out duration-200 hover:scale-110 hover:font-thin"
+        className={cn(
+          "uppercase bg-gradient-to-r from-indigo-500 to-violet-600 via-blue-600  relative rounded-lg z-40 mt-20 md:mt-10 block mx-auto bg-slate-600 py-3 px-10 text-white text-2xl font-semibold hover:-translate-y-2 ease-in-out duration-200 hover:scale-110 hover:font-thin",
+          oxanium.className
+        )}
         onClick={() => window.open("https://facebook.com", "_blank")}
       >
         Register

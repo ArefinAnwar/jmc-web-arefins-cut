@@ -8,6 +8,13 @@ import { BorderBeam } from "@/components/ui/border-beam";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { GridPattern } from "@/components/ui/grid-pattern";
+import { Audiowide, Oxanium } from "next/font/google";
+const audiowide = Audiowide({
+    weight: "400",
+    subsets: ["latin"],
+    display: "swap",
+});
+const oxanium = Oxanium({ weight: "400", subsets: ["latin"], display: "swap" });
 
 
 
@@ -34,7 +41,7 @@ function LoadingScreen({ onComplete }) {
 
 
     return (
-        <div className="fixed inset-0 flex items-center justify-center bg-[#070014] z-50">
+        <div className={cn("fixed inset-0 flex items-center justify-center bg-[#070014] z-50", oxanium.className)}>
             <div className="flex items-center text-white text-4xl font-mono">
                 <span className="text-[3rem] px-5 md:text-[6rem] -mt-4 mr-3 animate-pulse duration-75 text-blue-500">∫</span>
                 <span>{text}</span>
@@ -89,15 +96,15 @@ const articles = () => {
                 <>
                     <Navbar notHomePage={true} />
                     <motion.h1
-                        className="text-5xl px-5 md:text-5xl uppercase mt-8 font-bold text-center text-blue-500 z-40"
+                        className={cn("text-5xl px-5 md:text-5xl uppercase mt-8 font-bold text-center text-blue-500 z-40", audiowide.className)}
                         style={{
-                            textShadow: "3px 0px 1px #fff",
+                            // textShadow: "3px 0px 1px #fff",
                             willChange: "transform, opacity",
                         }}
                     >
                         Articles
                     </motion.h1>
-                    <p className="text-lg text-slate-300 mb-4 text-center max-w-2xl italic z-40">
+                    <p className={cn("text-lg text-slate-300 mb-4 text-center max-w-2xl italic z-40", oxanium.className)}>
                         Welcome to the Article section!
                     </p>
 
@@ -139,7 +146,7 @@ function QuizCard({ title, link, time, image, imagee }) {
                     priority
                 />
                 {/* {imagee} */}
-                <h1 className="text-xl text-white mt-3 w-full italic">{title}</h1>
+                <h1 className={cn("text-xl text-white mt-3 w-full italic", oxanium.className)}>{title}</h1>
 
 
             </Link>

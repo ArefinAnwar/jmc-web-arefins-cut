@@ -5,6 +5,15 @@ import { MessageSquareQuote } from "lucide-react";
 import { GridPattern } from "@/components/ui/grid-pattern";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { Audiowide, Oxanium } from "next/font/google";
+
+const audiowide = Audiowide({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
+const oxanium = Oxanium({ weight: "400", subsets: ["latin"], display: "swap" });
+
 export default function Testimonials() {
   const sectionRef = useRef(null);
   const inView = useInView(sectionRef, { once: false, margin: "-10% 0px" });
@@ -17,15 +26,18 @@ export default function Testimonials() {
         initial={{ opacity: 0, y: -50 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1 }}
-        className="absolute text-3xl px-5 uppercase md:text-5xl mb-5 md:mb-6 md:mt-14 mt-8 top-0 font-bold text-center text-blue-500 z-40"
+        className={cn(
+          "absolute text-3xl px-5 uppercase md:text-5xl mb-5 md:mb-6 md:mt-14 mt-8 top-0 font-bold text-center text-blue-500 z-40",
+          audiowide.className
+        )}
         style={{
-          textShadow: "3px 0px 1px #fff",
+          // textShadow: "3px 0px 1px #fff",
           willChange: "transform, opacity",
         }}
       >
         People about JMC
       </motion.h1>
-      <div className="grid md:grid-cols-2 w-11/12 justify-center grid-cols-1 items-center gap-x-16 gap-y-10 mt-10">
+      <div className="grid md:grid-cols-2 w-11/12 justify-center grid-cols-1 items-center gap-x-16 gap-y-10 md:mt-10 mt-32">
         <TestimonialCard
           name="Prince Sir"
           designation="Club Moderator"
@@ -76,14 +88,27 @@ function TestimonialCard({ name, designation, image, talk }) {
           </div>
 
           <div className="ml-5">
-            <h1 className="text-white text-2xl">{name}</h1>
-            <h1 className="text-blue-400 font-semibold">{designation}</h1>
+            <h1 className={cn("text-white text-2xl", oxanium.className)}>
+              {name}
+            </h1>
+            <h1
+              className={cn("text-blue-400 font-semibold", oxanium.className)}
+            >
+              {designation}
+            </h1>
           </div>
         </div>
 
         <MessageSquareQuote color="#fff" className="" size={50} />
       </div>
-      <p className="w-full text-slate-200 text-base z-40">{talk}</p>
+      <p
+        className={cn(
+          "w-full text-slate-200 text-base z-40",
+          oxanium.className
+        )}
+      >
+        {talk}
+      </p>
     </div>
   );
 }

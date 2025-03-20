@@ -3,6 +3,14 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
+import { Audiowide, Oxanium } from "next/font/google";
+const audiowide = Audiowide({
+    weight: "400",
+    subsets: ["latin"],
+    display: "swap",
+});
+const oxanium = Oxanium({ weight: "400", subsets: ["latin"], display: "swap" });
 
 export default function ArticlePage() {
     const { slug } = useParams(); // Get the slug from the URL
@@ -48,9 +56,9 @@ export default function ArticlePage() {
                     />
                 </div>
 
-                <h1 className="text-4xl font-bold text-blue-500 mt-5">{article.articleTitle}</h1>
-                <div className="flex flex-col w-full text-right mt-3">Wriitten by - Omuk ||  28 February, 2025</div>
-                <p className="mt-4 text-lg max-w-3xl ">{article.articleBody}</p>
+                <h1 className={cn("text-4xl font-bold text-blue-500 mt-5", oxanium.className)}>{article.articleTitle}</h1>
+                <div className={cn("flex flex-col w-full text-right mt-3", oxanium.className)}>Wriitten by - Omuk ||  28 February, 2025</div>
+                <p className={cn("mt-4 text-lg max-w-3xl", oxanium.className)}>{article.articleBody}</p>
             </div>
         </div>
     );

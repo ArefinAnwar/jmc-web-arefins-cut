@@ -5,6 +5,15 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
 import { BorderBeam } from "@/components/ui/border-beam";
+import { Audiowide, Oxanium } from "next/font/google";
+import { cn } from "@/lib/utils";
+const audiowide = Audiowide({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
+const oxanium = Oxanium({ weight: "400", subsets: ["latin"], display: "swap" });
+
 
 function LoadingScreen({ onComplete }) {
   const [text, setText] = useState("");
@@ -27,7 +36,7 @@ function LoadingScreen({ onComplete }) {
   }, []);
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-[#070014] z-50">
+    <div className={cn("fixed inset-0 flex items-center justify-center bg-[#070014] z-50", oxanium.className)}>
       <div className="flex items-center text-white text-4xl font-mono">
         <span className="text-[3rem] px-5 md:text-[6rem] -mt-4 mr-3 animate-pulse duration-75 text-blue-500">∫</span>
         <span>{text}</span>

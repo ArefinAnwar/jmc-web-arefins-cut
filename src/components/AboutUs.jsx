@@ -7,6 +7,15 @@ import { cn } from "@/lib/utils";
 import { GridPattern } from "@/components/ui/grid-pattern";
 import { OrbitingCircles } from "@/components/ui/orbiting-circles";
 
+import { Audiowide, Oxanium } from "next/font/google";
+
+const audiowide = Audiowide({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
+const oxanium = Oxanium({ weight: "400", subsets: ["latin"], display: "swap" });
+
 const activities = [
   { title: "7", desc: "BDMO" },
   { title: "100+", desc: "Workshops" },
@@ -37,7 +46,8 @@ export default function AboutUs() {
   return (
     <div
       ref={sectionRef}
-      className="flex relative flex-col w-full h-[150vh] md:h-auto md:min-h-screen md:justify-center items-center"
+      className="flex relative flex-col w-full min-h-[120vh] md:min-h-screen md:justify-center items-center"
+
     >
       <GridPattern
         width={30}
@@ -54,9 +64,12 @@ export default function AboutUs() {
         initial={{ opacity: 0, y: -50 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1 }}
-        className="text-5xl px-5 md:text-5xl uppercase absolute top-0 mt-14 md:mt-20 font-bold text-center text-blue-500 z-40"
+        className={cn(
+          "text-3xl px-5 md:text-5xl uppercase absolute top-0 mt-14 md:mt-20 font-bold text-center text-blue-500 z-40",
+          audiowide.className
+        )}
         style={{
-          textShadow: "3px 0px 1px #fff",
+          // textShadow: "3px 0px 1px #fff",
           willChange: "transform, opacity",
         }}
       >
@@ -67,7 +80,10 @@ export default function AboutUs() {
           <TypingAnimation
             duration={20}
             delay={4000}
-            className="text-slate-200 text-lg md:mt-0 mt-32 z-30 h-[42rem]"
+            className={cn(
+              "text-slate-200 text-lg md:mt-0 mt-32 z-30 h-[42rem]",
+              oxanium.className
+            )}
           >
             The Josephite Math Club is dedicated to cultivating a passion for
             mathematics. Our mission is to provide a supportive environment for
@@ -75,7 +91,7 @@ export default function AboutUs() {
             competitions, and engage in math-related events. Join us to
             experience the world of mathematics in a whole new way!
           </TypingAnimation>
-          <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-3  w-full mt-10 md:mt-6   z-40">
+          <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-3 h-80 g-amber-200  w-full mt-10 md:mt-6  z-40">
             {activities.map((activity, index) => (
               <ActivitiesBlock
                 key={index}
@@ -87,7 +103,12 @@ export default function AboutUs() {
           </motion.div>
         </div>
         {!isMobile ? (
-          <div className="relative flex flex-col w-full md:w-1/2 justify-center items-center h-[24rem]  z-40">
+          <div
+            className={cn(
+              "relative  flex flex-col w-full md:w-1/2 justify-center items-center h-[24rem]  z-40",
+              oxanium.className
+            )}
+          >
             <OrbitingCircles
               iconSize={40}
               radius={isMobile ? 50 : 90}
@@ -131,7 +152,10 @@ function ActivitiesBlock({ title, desc, delay }) {
       initial={{ opacity: 0, y: 200 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: delay }}
-      className="p-5 px-6  w-full bg-blue-900 bg-opacity-30 text-white rounded-2xl shadow-sm shadow-indigo-500 items-center justify-center"
+      className={cn(
+        "p-5 px-6  w-full bg-blue-900 bg-opacity-30 text-white rounded-2xl shadow-sm shadow-indigo-500 items-center justify-center",
+        oxanium.className
+      )}
     >
       <h1 className=" text-3xl md:text-4xl lg:text-5xl text-center font-bold mb-2">
         {title}

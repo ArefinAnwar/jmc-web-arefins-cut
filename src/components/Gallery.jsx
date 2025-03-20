@@ -3,7 +3,16 @@ import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Particles } from "@/components/ui/particles";
 import Image from "next/image";
+import { Audiowide, Oxanium } from "next/font/google";
 
+const audiowide = Audiowide({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
+const oxanium = Oxanium({ weight: "400", subsets: ["latin"], display: "swap" });
+
+import { cn } from "@/lib/utils";
 const images = [
   "/four.jpg",
   "/five.jpg",
@@ -72,9 +81,12 @@ export default function Gallery() {
         initial={{ opacity: 0, y: -50 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1 }}
-        className="text-5xl absolute top-0 px-5 md:text-5xl uppercase mt-16 md:mt-10 mb-4 md:mb-10 font-bold text-center text-blue-500 z-40"
+        className={cn(
+          "text-5xl absolute top-0 px-5 md:text-5xl uppercase mt-16 md:mt-10 mb-4 md:mb-10 font-bold text-center text-blue-500 z-40",
+          audiowide.className
+        )}
         style={{
-          textShadow: "3px 0px 1px #fff",
+          // textShadow: "3px 0px 1px #fff",
           willChange: "transform, opacity",
         }}
       >
