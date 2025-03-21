@@ -90,14 +90,14 @@ export default function AboutUs() {
         What is JMC?
       </motion.h1>
       <div className="flex flex-col md:flex-row w-full justify-center items-center px-10 md:h-[20rem] h-[40rem] md:mt-10">
-        <div className="flex  flex-col w-full md:w-1/2 h-full bg-slate-5 items-start">
+        <div className="flex  flex-col w-full md:w-4/5 h-full bg-slate-5 items-start">
           <motion.div
             ref={sectionRef}
             variants={sentenceVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
             className={cn(
-              "text-slate-200 text-lg md:mt-0 mt-32 z-30 h-[42rem] space-y-1",
+              "text-slate-200 text-lg md:mt-0 mt-32 z-30 h-[42rem] text-center space-y-1",
               oxanium.className
             )}
           >
@@ -117,7 +117,7 @@ export default function AboutUs() {
                 key={index}
                 title={activity.title}
                 desc={activity.desc}
-                delay={index == 0 ? 4 : 4 + 0.8 * index}
+                delay={index == 0 ? 5 : 5 + 0.8 * index}
                 // delay={0.5 * index}
                 rref={sectionRef}
               />
@@ -127,7 +127,7 @@ export default function AboutUs() {
         {!isMobile ? (
           <div
             className={cn(
-              "relative  flex flex-col w-full md:w-1/2 justify-center items-center h-[24rem]  z-40",
+              "relative md:absolute  flex flex-col w-full md:w-1/2 justify-center items-center h-[24rem]  z-10",
               oxanium.className
             )}
           >
@@ -136,24 +136,24 @@ export default function AboutUs() {
               radius={isMobile ? 50 : 90}
               path="true"
             >
-              <h1 className="text-blue-500 text-2xl">{"\u03C0"}</h1>
-              <h1 className="text-blue-500 text-2xl">{"\u222B"}</h1>
-              <h1 className="text-blue-500 text-2xl">{"d/dx"}</h1>
-              <h1 className="text-blue-500 text-2xl">{"\u2211"}</h1>
+              <h1 className="text-blue-500/50 text-2xl">{"\u03C0"}</h1>
+              <h1 className="text-blue-500/50 text-2xl">{"\u222B"}</h1>
+              <h1 className="text-blue-500/50 text-2xl">{"d/dx"}</h1>
+              <h1 className="text-blue-500/50 text-2xl">{"\u2211"}</h1>
             </OrbitingCircles>
             <OrbitingCircles
               iconSize={40}
-              radius={isMobile ? 110 : 170}
+              radius={isMobile ? 110 : 180}
               path="true"
               reverse
               speed={1.5}
             >
-              <h1 className="text-blue-500 text-2xl">{"\u2211"}</h1>
-              <h1 className="text-blue-500 text-2xl">{"\u221A"}</h1>
-              <h1 className="text-blue-500 text-2xl">{"\u03B1"}</h1>
-              <h1 className="text-blue-500 text-2xl">{"\u03B2"}</h1>
-              <h1 className="text-blue-500 text-2xl">{"\u03B3"}</h1>
-              <h1 className="text-blue-500 text-2xl">{"\u2248"}</h1>
+              <h1 className="text-blue-500/50 text-2xl">{"\u2211"}</h1>
+              <h1 className="text-blue-500/50 text-2xl">{"\u221A"}</h1>
+              <h1 className="text-blue-500/50 text-2xl">{"\u03B1"}</h1>
+              <h1 className="text-blue-500/50 text-2xl">{"\u03B2"}</h1>
+              <h1 className="text-blue-500/50 text-2xl">{"\u03B3"}</h1>
+              <h1 className="text-blue-500/50 text-2xl">{"\u2248"}</h1>
             </OrbitingCircles>
           </div>
         ) : (
@@ -175,7 +175,7 @@ function ActivitiesBlock({ title, desc, delay, rref }) {
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: delay }}
       className={cn(
-        "p-5 px-6  w-full bg-blue-900 bg-opacity-30 text-white rounded-2xl shadow-sm shadow-indigo-500 items-center justify-center",
+        "p-5 px-6  w-full bg-[#181434] bgopacity-30 text-white rounded-2xl shadow-sm shadow-indigo-500 items-center justify-center",
         oxanium.className
       )}
     >
