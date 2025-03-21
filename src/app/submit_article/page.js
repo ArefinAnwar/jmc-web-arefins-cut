@@ -4,6 +4,15 @@ import React, { useState, useEffect } from "react";
 import { Suspense } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
+import { cn } from "@/lib/utils";
+import { Audiowide, Oxanium } from "next/font/google";
+const audiowide = Audiowide({
+    weight: "400",
+    subsets: ["latin"],
+    display: "swap",
+});
+const oxanium = Oxanium({ weight: "400", subsets: ["latin"], display: "swap" });
+
 import {
     ClerkProvider,
     SignInButton,
@@ -14,10 +23,11 @@ import {
 } from "@clerk/nextjs";
 
 
+
 function LoadingScreen({ onComplete }) {
     const [text, setText] = useState("");
     const fullText = "Calculating dt...";
-    const typingSpeed = 150;
+    const typingSpeed = 100;
 
     useEffect(() => {
         let index = 0;
@@ -35,8 +45,8 @@ function LoadingScreen({ onComplete }) {
     }, []);
 
     return (
-        <div className="fixed inset-0 flex items-center justify-center bg-[#070014] z-50">
-            <div className="flex items-center text-white text-4xl font-mono">
+        <div className={cn("fixed inset-0 flex items-center justify-center bg-[#070014] z-50", oxanium.className)}>
+            <div className={cn("flex items-center text-white text-4xl ", oxanium.className)}>
                 <span className="text-[3rem] px-5 md:text-[6rem] -mt-4 mr-3 animate-pulse duration-75 text-blue-500">∫</span>
                 <span>{text}</span>
             </div>

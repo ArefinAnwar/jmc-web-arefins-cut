@@ -48,7 +48,7 @@ const oxanium = Oxanium({ weight: "400", subsets: ["latin"], display: "swap" });
 function LoadingScreen({ onComplete }) {
   const [text, setText] = useState("");
   const fullText = "Calculating dt...";
-  const typingSpeed = 0; // Typing speed in milliseconds
+  const typingSpeed = 100; // Typing speed in milliseconds
 
   useEffect(() => {
     let index = 0;
@@ -69,7 +69,7 @@ function LoadingScreen({ onComplete }) {
 
   return (
     <div className={cn("fixed inset-0 flex items-center justify-center bg-[#070014] z-50", oxanium.className)}>
-      <div className="flex items-center text-white text-4xl font-mono">
+      <div className={cn("flex items-center text-white text-4xl ", oxanium.className)}>
         <span className="text-[3rem] px-5 md:text-[6rem] -mt-4 mr-3 animate-pulse duration-75 text-blue-500">∫</span>
         <span>{text}</span>
       </div>

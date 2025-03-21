@@ -4,11 +4,20 @@ import React, { useState, useEffect } from "react";
 import { Suspense } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
+import { Audiowide, Oxanium } from "next/font/google";
+import { cn } from "@/lib/utils";
+const audiowide = Audiowide({
+    weight: "400",
+    subsets: ["latin"],
+    display: "swap",
+});
+const oxanium = Oxanium({ weight: "400", subsets: ["latin"], display: "swap" });
+
 
 function LoadingScreen({ onComplete }) {
     const [text, setText] = useState("");
     const fullText = "Calculating dt...";
-    const typingSpeed = 150;
+    const typingSpeed = 100;
 
     useEffect(() => {
         let index = 0;
@@ -26,8 +35,8 @@ function LoadingScreen({ onComplete }) {
     }, []);
 
     return (
-        <div className="fixed inset-0 flex items-center justify-center bg-[#070014] z-50">
-            <div className="flex items-center text-white text-4xl font-mono">
+        <div className={cn("fixed inset-0 flex items-center justify-center bg-[#070014] z-50", oxanium.className)}>
+            <div className={cn("flex items-center text-white text-4xl ", oxanium.className)}>
                 <span className="text-[3rem] px-5 md:text-[6rem] -mt-4 mr-3 animate-pulse duration-75 text-blue-500">∫</span>
                 <span>{text}</span>
             </div>
@@ -47,8 +56,8 @@ function SubmitArticle() {
                     <>
                         <Navbar notHomePage={true} />
                         <motion.h1
-                            className="text-5xl px-5 md:text-5xl uppercase mt-8 font-bold text-center text-blue-500"
-                            style={{ textShadow: "3px 0px 1px #fff", willChange: "transform, opacity" }}
+                            className={cn("text-5xl px-5 md:text-5xl uppercase mt-8 font-bold text-center text-blue-500", audiowide.className)}
+                            style={{ willChange: "transform, opacity" }}
                         >
                             Coming soon...
                         </motion.h1>

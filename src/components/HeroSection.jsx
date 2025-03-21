@@ -100,11 +100,11 @@ export default function HeroSection() {
       >
         Register
         <BorderBeam
-          size={30}
-          colorFrom="#6e19ff"
-          colorTo="#fff"
-          duration={2.5}
-          borderWidth="3"
+          size={60}
+          colorFrom="#d5d5d5"
+          colorTo="#d5d5d5"
+          duration={4.5}
+          borderWidth="2"
         />
       </button>
       <RetroGrid className="bg-transparent" />
