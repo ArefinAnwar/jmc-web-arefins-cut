@@ -8,7 +8,7 @@ import { GridPattern } from "@/components/ui/grid-pattern";
 import { OrbitingCircles } from "@/components/ui/orbiting-circles";
 
 import { Audiowide, Oxanium } from "next/font/google";
-
+const text = `The Josephite Math Club is dedicated to cultivating a passion for mathematics. Our mission is to provide a supportive environment for students to explore mathematical concepts, participate in competitions, and engage in math-related events. Join us to experience the world of mathematics in a whole new way!`;
 const audiowide = Audiowide({
   weight: "400",
   subsets: ["latin"],
@@ -28,7 +28,22 @@ export default function AboutUs() {
   const inView = useInView(sectionRef, { once: true, margin: "-10% 0px" });
   const floatingSymbols = ["\u03C0", "\u222B", "d/dx", "\u2211"];
   const [isMobile, setIsMobile] = useState(false);
+  const sentenceVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }, // Each line fades in separately
+    },
+  };
 
+  const lineVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.1, ease: "easeOut" },
+    },
+  };
   useEffect(() => {
     // Function to check window size
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -46,8 +61,7 @@ export default function AboutUs() {
   return (
     <div
       ref={sectionRef}
-      className="flex relative flex-col w-full min-h-[120vh] md:min-h-screen md:justify-center items-center"
-
+      className="flex relative flex-col w-full min-h-[130vh] md:min-h-screen md:justify-center items-center"
     >
       <GridPattern
         width={30}
@@ -77,27 +91,35 @@ export default function AboutUs() {
       </motion.h1>
       <div className="flex flex-col md:flex-row w-full justify-center items-center px-10 md:h-[20rem] h-[40rem] md:mt-10">
         <div className="flex  flex-col w-full md:w-1/2 h-full bg-slate-5 items-start">
-          <TypingAnimation
-            duration={20}
-            delay={4000}
+          <motion.div
+            ref={sectionRef}
+            variants={sentenceVariants}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
             className={cn(
-              "text-slate-200 text-lg md:mt-0 mt-32 z-30 h-[42rem]",
+              "text-slate-200 text-lg md:mt-0 mt-32 z-30 h-[42rem] space-y-1",
               oxanium.className
             )}
           >
-            The Josephite Math Club is dedicated to cultivating a passion for
-            mathematics. Our mission is to provide a supportive environment for
-            students to explore mathematical concepts, participate in
-            competitions, and engage in math-related events. Join us to
-            experience the world of mathematics in a whole new way!
-          </TypingAnimation>
-          <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-3 h-80 g-amber-200  w-full mt-10 md:mt-6  z-40">
+            {text.split(" ").map((word, index) => (
+              <motion.span
+                key={index}
+                variants={lineVariants}
+                className="inline-block whitespace-pre-wrap" // Ensures words wrap naturally
+              >
+                {word + " "}
+              </motion.span>
+            ))}
+          </motion.div>
+          <motion.div className="grid grid-rows-2 md:grid-rows-1 grid-cols-2 md:grid-cols-4 gap-3 md:h-auto g-amber-200  w-full mt-10 md:mt-6 auto-rows-min z-40">
             {activities.map((activity, index) => (
               <ActivitiesBlock
                 key={index}
                 title={activity.title}
                 desc={activity.desc}
-                delay={1.25 * index}
+                delay={index == 0 ? 4 : 4 + 0.8 * index}
+                // delay={0.5 * index}
+                rref={sectionRef}
               />
             ))}
           </motion.div>
@@ -141,10 +163,10 @@ export default function AboutUs() {
     </div>
   );
 }
-function ActivitiesBlock({ title, desc, delay }) {
-  const ref = useRef(null);
+function ActivitiesBlock({ title, desc, delay, rref }) {
+  const ref = rref;
 
-  const inView = useInView(ref, { once: true, margin: "-10% 0px" });
+  const inView = useInView(ref, { once: true, margin: "90% 0px" });
 
   return (
     <motion.div

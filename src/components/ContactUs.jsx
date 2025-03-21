@@ -86,7 +86,7 @@ export default function ContactUs() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1 }}
             className={cn(
-              "text-2xl px-5 mb-4 uppercase md:text-5xl font-bold text-center text-blue-500 z-40",
+              "text-2xl px-5 mb-4 uppercase md:text-[2.8rem] font-bold text-center text-blue-500 z-40 w-full",
               audiowide.className
             )}
             style={{

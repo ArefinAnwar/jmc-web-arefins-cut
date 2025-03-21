@@ -12,7 +12,7 @@ const oxanium = Oxanium({ weight: "400", subsets: ["latin"], display: "swap" });
 
 export default function Footer() {
   return (
-    <div className="relative flex flex-col md:flex-row w-full h-auto py-4  md:py-0 md:h-40 bg-slate-800/30 items-center justify-center">
+    <div className="relative flex flex-col md:flex-row w-full h-auto py-4   md:py-0 md:h-40 bg-slate-800/30 items-center justify-center">
       <div className="h-full flex flex-row w-11/12 md:w-1/6 justify-center items-center ml-2">
         <Image
           className="z-40 md:w-[75%] h-[50%] w-[20%] mr-3 rounded-2xl "
@@ -79,7 +79,12 @@ export default function Footer() {
           </button>
         </div>
       </div>
-      <span className={cn("text-sm absolute bottom-2 text-slate-300 mx-auto", audiowide.className)}>
+      <span
+        className={cn(
+          "text-sm absolute bottom-2 text-slate-300 mx-auto ",
+          audiowide.className
+        )}
+      >
         © JMC | Made with ❤️ by{" "}
         <Link
           target="_blank"

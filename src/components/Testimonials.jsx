@@ -20,14 +20,14 @@ export default function Testimonials() {
   return (
     <div
       ref={sectionRef}
-      className="relative flex flex-col md:mt-20 w-full min-h-screen justify-center items-center overflow-hidden mb:pb-0 pb-10 "
+      className="relative flex flex-col md:mt-20 w-full min-h-screen bgemerald-400 jstify-center items-center overflow-hidden mb:pb-0 pb-10 "
     >
       <motion.h1
         initial={{ opacity: 0, y: -50 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1 }}
         className={cn(
-          "absolute text-3xl px-5 uppercase md:text-5xl mb-5 md:mb-6 md:mt-14 mt-8 top-0 font-bold text-center text-blue-500 z-40",
+          "absolute text-3xl px-5 uppercase md:text-5xl mb-5 md:mb-6 md:mt-0  mt-14 top-0 font-bold text-center text-blue-500 z-40",
           audiowide.className
         )}
         style={{
@@ -37,7 +37,7 @@ export default function Testimonials() {
       >
         People about JMC
       </motion.h1>
-      <div className="grid md:grid-cols-2 w-11/12 justify-center grid-cols-1 items-center gap-x-16 gap-y-10 md:mt-10 mt-32">
+      <div className="grid md:grid-cols-2 w-11/12 justify-center grid-cols-1 items-center gap-x-16 gap-y-10 md:mt-24 mt-36">
         <TestimonialCard
           name="Prince Sir"
           designation="Club Moderator"

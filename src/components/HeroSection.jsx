@@ -50,7 +50,7 @@ export default function HeroSection() {
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1 }}
         className={cn(
-          "text-6xl px-5 md:text-[5rem] uppercase  mt-44 md:mt-64 font-bold text-center text-[#51affc] z-40",
+          "text-6xl px-5 md:text-[5rem] uppercase  mt-32 md:mt-60 font-bold text-center text-[#51affc] z-40",
           bungeeShade.className
         )}
         style={{
@@ -99,7 +99,13 @@ export default function HeroSection() {
         onClick={() => window.open("https://facebook.com", "_blank")}
       >
         Register
-        <BorderBeam size={50} duration={5} borderWidth="3" />
+        <BorderBeam
+          size={30}
+          colorFrom="#6e19ff"
+          colorTo="#fff"
+          duration={2.5}
+          borderWidth="3"
+        />
       </button>
       <RetroGrid className="bg-transparent" />
     </div>

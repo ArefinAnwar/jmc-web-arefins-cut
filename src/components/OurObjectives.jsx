@@ -113,7 +113,7 @@ function ObjectiveCard({ title, description, icon, delay }) {
     >
       <BorderBeam
         size={160}
-        duration={2}
+        duration={4}
         delay={9}
         colorFrom="#6e19ff"
         colorTo="#87b5ff"
